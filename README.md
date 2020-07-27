@@ -6,13 +6,13 @@
 - dashboard -> nsqadmin
 
 ## Things to Note
-1. Do not have multiple nsqd daemons in the same host
+1. Do NOT have multiple nsqd daemons in the same host
 2. The broadcast address is pivotal for a distributed nsq system. Check below for more details.
 
 ## Direct Communication with nsqd Daemon
 The writer needs to directly write to the daemon. Now, the consumer/client can consume by directly connecting to the daemon tcp address. But, this will not work very well for a large scale distributed system.
 
-The second method is to use lookup. This is a type of service discovery tool. The daemons need to connect to the lookup tcp address. This will allow the client/consumer to connect to the lookup http address and consume the data stream. This methodology does however some restrictions, but does not provide any hindrance for a good service. 
+The second method is to use lookup. This is a type of service discovery tool. The daemons need to connect to the lookup tcp address. This will allow the client/consumer to connect to the lookup http address and consume the data stream. This methodology does however have some restrictions, but does not pose any major hindrances. 
 
 1. If there is no topic already created, the client will get a 404 if it wants to connect to the lookup topic. If it connected directly to the daemon tcp address, it wouldn't matter if the topic was there or not in the beginning.
 
